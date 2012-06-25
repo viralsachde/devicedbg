@@ -30,7 +30,8 @@
  * recompile your linux kernel with the configuration setting
  *	CONFIG_OMAP_RESET_CLOCKS = n
  * This option do not reset the inactive clocks so that you have the access to 
- * the unused modules also.
+ * the unused modules also. This may increase SoC power consumption, so it recommanded
+ * in production device. 
  */ 
 
 #include <stdio.h>
