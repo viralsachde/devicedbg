@@ -499,8 +499,8 @@ void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,
 //	target = strtoul(argv[1], 0, 0);
 	target = base;
 
-	if(argc > 2)
-		access_type = tolower(argv[2][0]);
+//	if(argc > 2)
+//		access_type = tolower(argv[2][0]);
 
 	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) FATAL;
 	printf("/dev/mem opened.\n");
@@ -536,29 +536,6 @@ void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,
 		printf("REGISTER NAME: %s \t\tValue at address 0x%lu \t offset 0x%lu \t (%p) \t: 0x%lu\n",rinfo[i].name,target,rinfo[i].offset ,virt_addr, read_result);
 	}
 
-
-/*	char num[20];
-	if(argc > 3) {
-		writeval = strtoul(argv[4], 0, 0);
-		switch(access_type) {
-			case 'b':
-				*((unsigned char *) virt_addr) = writeval;
-				read_result = *((unsigned char *) virt_addr);
-				break;
-			case 'h':
-				*((unsigned short *) virt_addr) = writeval;
-				read_result = *((unsigned short *) virt_addr);
-				break;
-			case 'w':
-				*((unsigned long *) virt_addr) = writeval;
-				read_result = *((unsigned long *) virt_addr);
-				break;
-		}
-                 printf("Written 0x%lu; readback 0x%lu\n 0x%s", writeval, read_result,(char *) virt_addr);
-                 sprintf(num,"%lu",read_result);
-                 fflush(stdout);
-	}
-*/
 	if(munmap(map_base, MAP_SIZE) == -1) FATAL;
 	close(fd);
 }
