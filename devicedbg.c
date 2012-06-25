@@ -9,6 +9,8 @@
  *  Copyright (C) 2012, Viral Sachde 	(viralsachde@gmail.com) 
  *  Copyright (C) 2012, Anil Kag 	(anilkagak2e@gmail.com) 
  *
+ * This modification is done at Cycloid System Private Limited, Bangalore. 
+ * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -30,9 +32,9 @@
  * recompile your linux kernel with the configuration setting
  *	CONFIG_OMAP_RESET_CLOCKS = n
  * This option do not reset the inactive clocks so that you have the access to 
- * the unused modules also. This may increase SoC power consumption, so it recommanded
- * in production device. 
- */ 
+ * the unused modules also. Make sure the particular peripheral's clock is active.
+ * This may increase SoC power consumption, so it is not recommanded in production device. 
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
