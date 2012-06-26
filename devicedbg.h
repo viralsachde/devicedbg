@@ -10,6 +10,9 @@
  *		ARRAY_SIZE:	calculates the struct reg_info array size
  */
 
+#ifndef _DEVICEDBG_H_
+#define _DEVICEDBG_H_
+
 /* representation of a register */
 struct reg_info {
 	unsigned long offset;
@@ -49,6 +52,10 @@ struct reg_info {
 /* Processor types */
 #define OMAP4		0
 #define AM335x		1
+
+
+/* if compilation includes the OMAP4 flag */
+#ifdef _OMAP4_
 
 /* Registers OMAP 4430 */
 // base 0x4A002000
@@ -422,6 +429,8 @@ static struct reg_info mcasp_registers[] = {
 	{ 0x200, 0x0, 0x0, "MCASP_TXBUF0" }
 };
 
+#endif		// _OMAP4_
+
 /* Reads the /proc/cpuinfo and finds out which processor we are working on
  * Input:
  *	No input required
@@ -489,7 +498,7 @@ void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,
 	int fd, i=0;
 	int access_type = 'w';
 	void *map_base, *virt_addr;
-	unsigned long read_result, writeval;
+	unsigned long read_result;
 	off_t target;
 
 //	printf("%s Registers\n",reg_type);
@@ -539,3 +548,5 @@ void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,
 	if(munmap(map_base, MAP_SIZE) == -1) FATAL;
 	close(fd);
 }
+
+#endif

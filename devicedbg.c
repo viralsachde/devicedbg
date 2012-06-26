@@ -63,6 +63,7 @@ int main(int argc, char **argv) {
         int n = atoi(argv[1]);
 	int processor = read_processor();	// which processor we are working on
 
+#ifdef _OMAP4_
 	if( processor == OMAP4 ) {
 		switch(n) {
 			case PRODUCT_ID:
@@ -252,10 +253,13 @@ int main(int argc, char **argv) {
 				printf("Invalid section\n");
 		}
 	}
+#endif
 
-	else if( processor == AM335x ) {
+#ifdef _AM335x_
+	if( processor == AM335x ) {
 		printf("Currently code is not mixed with this program\n");
 	}
+#endif
 
 	else {
 		printf("Processor not supported\n");
