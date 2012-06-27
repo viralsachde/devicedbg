@@ -68,16 +68,16 @@ int main(int argc, char **argv) {
 		switch(n) {
 			case PRODUCT_ID:
 				// base 0x4A002000
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_product_id_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_product_id_registers);
 				printf("\n--------------Product ID Registers-----------------:\n");
-				show_registers(omap4430_product_id_registers,num_regs,argc,argv,0x4A002000);
+				show_registers(omap44x_product_id_registers,num_regs,0x4A002000);
 				break;
 
 			case LCD_CONTROLLER:
 				// base 0x48041000
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_lcd_controller_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_lcd_controller_registers);
 				printf("\n------------LCD Controller Registers-------------------:\n");
-				show_registers(omap4430_lcd_controller_registers,num_regs,argc,argv,0x48041000);
+				show_registers(omap44x_lcd_controller_registers,num_regs,0x48041000);
 				break;
 
 			case DCAN:
@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
 				* i2c2 0x48072000
 				* i2c4 0x48350000
 				*/
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_i2c_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_i2c_registers);
 				printf("\nI2C Registers:\n");
 				printf("Which one of the four I2Cs?? [1,2,3,4]:\n");
 				scanf("%d",&choice);
@@ -103,22 +103,22 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ I2C1 REGISTERS----------------\n");
-					show_registers(omap4430_i2c_registers,num_regs,argc,argv,0x48070000);
+					show_registers(omap44x_i2c_registers,num_regs,0x48070000);
 					break;
 
 					case 2:
 					printf("------------------ I2C2 REGISTERS----------------\n");
-					show_registers(omap4430_i2c_registers,num_regs,argc,argv,0x48072000);
+					show_registers(omap44x_i2c_registers,num_regs,0x48072000);
 					break;
 
 					case 3:
 					printf("------------------ I2C3 REGISTERS----------------\n");
-					show_registers(omap4430_i2c_registers,num_regs,argc,argv,0x48060000);
+					show_registers(omap44x_i2c_registers,num_regs,0x48060000);
 					break;
 
 					case 4:
 					printf("------------------ I2C4 REGISTERS----------------\n");
-					show_registers(omap4430_i2c_registers,num_regs,argc,argv,0x48350000);
+					show_registers(omap44x_i2c_registers,num_regs,0x48350000);
 					break;
 
 					default:
@@ -128,16 +128,16 @@ int main(int argc, char **argv) {
 
 			case LCD:
 				// base 0x48040000
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_lcd_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_lcd_registers);
 				printf("\n------------ LCD Registers -----------------:\n");
-				show_registers(omap4430_lcd_registers,num_regs,argc,argv,0x48040000);
+				show_registers(omap44x_lcd_registers,num_regs,0x48040000);
 				break;
 
 			case MCASP:
 				// base 0x49028000
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_mcasp_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_mcasp_registers);
 				printf("\n-------------- McASP Registers----------------:\n");
-				show_registers(omap4430_mcasp_registers,num_regs,argc,argv,0x49028000);
+				show_registers(omap44x_mcasp_registers,num_regs,0x49028000);
 				break;
 
 			 case MCSPI:
@@ -147,7 +147,7 @@ int main(int argc, char **argv) {
 				* MCSPI3	0x480B8000
 				* MCSPI4	0x480BA000
 				*/
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_mcspi_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_mcspi_registers);
 				printf("\nMcSPI Registers:\n");
 				printf("Which one of the four McSPIs?? [1,2,3,4]:\n");
 				scanf("%d",&choice);
@@ -155,22 +155,22 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ MCSPI1 REGISTERS----------------\n");
-					show_registers(omap4430_mcspi_registers,num_regs,argc,argv,0x48098000);
+					show_registers(omap44x_mcspi_registers,num_regs,0x48098000);
 					break;
 
 					case 2:
 					printf("------------------ MCSPI2 REGISTERS----------------\n");
-					show_registers(omap4430_mcspi_registers,num_regs,argc,argv,0x4809A000);
+					show_registers(omap44x_mcspi_registers,num_regs,0x4809A000);
 					break;
 
 					case 3:
 					printf("------------------ MCSPI3 REGISTERS----------------\n");
-					show_registers(omap4430_mcspi_registers,num_regs,argc,argv,0x480B8000);
+					show_registers(omap44x_mcspi_registers,num_regs,0x480B8000);
 					break;
 
 					case 4:
 					printf("------------------ MCSPI4 REGISTERS----------------\n");
-					show_registers(omap4430_mcspi_registers,num_regs,argc,argv,0x480BA000);
+					show_registers(omap44x_mcspi_registers,num_regs,0x480BA000);
 					break;
 
 					default:
@@ -186,7 +186,7 @@ int main(int argc, char **argv) {
 				* MMCHS4	0x480D1000
 				* MMCHS5	0x480D5000
 				*/
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_mmchs_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_mmchs_registers);
 				printf("\nMMC/SD/SDIO Registers:\n");
 				printf("Which one of the 5 MMCHSs?? [1,2,3,4,5]:\n");
 				scanf("%d",&choice);
@@ -194,27 +194,27 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ MMCHS1 REGISTERS----------------\n");
-					show_registers(omap4430_mmchs_registers,num_regs,argc,argv,0x4809C000);
+					show_registers(omap44x_mmchs_registers,num_regs,0x4809C000);
 					break;
 
 					case 2:
 					printf("------------------ MMCHS2 REGISTERS----------------\n");
-					show_registers(omap4430_mmchs_registers,num_regs,argc,argv,0x480B4000);
+					show_registers(omap44x_mmchs_registers,num_regs,0x480B4000);
 					break;
 
 					case 3:
 					printf("------------------ MMCHS3 REGISTERS----------------\n");
-					show_registers(omap4430_mmchs_registers,num_regs,argc,argv,0x480AD000);
+					show_registers(omap44x_mmchs_registers,num_regs,0x480AD000);
 					break;
 
 					case 4:
 					printf("------------------ MMCHS4 REGISTERS----------------\n");
-					show_registers(omap4430_mmchs_registers,num_regs,argc,argv,0x480D1000);
+					show_registers(omap44x_mmchs_registers,num_regs,0x480D1000);
 					break;
 
 					case 5:
 					printf("------------------ MMCHS5 REGISTERS----------------\n");
-					show_registers(omap4430_mmchs_registers,num_regs,argc,argv,0x480D5000);
+					show_registers(omap44x_mmchs_registers,num_regs,0x480D5000);
 					break;
 
 					default:
@@ -235,7 +235,7 @@ int main(int argc, char **argv) {
 				* uart3 0x48020000
 				* uart4 0x4806E000
 				*/
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_uart_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_uart_registers);
 				printf("\nUART Registers:\n");
 				printf("Which one of the four UARTs?? [1,2,3,4]:\n");
 				scanf("%d",&choice);
@@ -243,22 +243,22 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ UART1 REGISTERS----------------\n");
-					show_registers(omap4430_uart_registers,num_regs,argc,argv,0x4806A000);
+					show_registers(omap44x_uart_registers,num_regs,0x4806A000);
 					break;
 
 					case 2:
 					printf("------------------ UART2 REGISTERS----------------\n");
-					show_registers(omap4430_uart_registers,num_regs,argc,argv,0x4806C000);
+					show_registers(omap44x_uart_registers,num_regs,0x4806C000);
 					break;
 
 					case 3:
 					printf("------------------ UART3 REGISTERS----------------\n");
-					show_registers(omap4430_uart_registers,num_regs,argc,argv,0x48020000);
+					show_registers(omap44x_uart_registers,num_regs,0x48020000);
 					break;
 
 					case 4:
 					printf("------------------ UART4 REGISTERS----------------\n");
-					show_registers(omap4430_uart_registers,num_regs,argc,argv,0x4806E000);
+					show_registers(omap44x_uart_registers,num_regs,0x4806E000);
 					break;
 
 					default:
@@ -274,7 +274,7 @@ int main(int argc, char **argv) {
 				WDT2   0x4A314000
 				WDT3   0x49030000
 				*/ 
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_wdt_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_wdt_registers);
 				printf("\nWDT Registers:\n");
 				printf("Which one of the two WDT's?? [1,2]:\n");
 				scanf("%d",&choice);
@@ -282,12 +282,12 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ WDT2 REGISTERS----------------\n");
-					show_registers(omap4430_wdt_registers,num_regs,argc,argv,0x4A314000);
+					show_registers(omap44x_wdt_registers,num_regs,0x4A314000);
 					break;
 
 					case 2:
 					printf("------------------ WDT3 REGISTERS----------------\n");
-					show_registers(omap4430_wdt_registers,num_regs,argc,argv,0x49030000);
+					show_registers(omap44x_wdt_registers,num_regs,0x49030000);
 					break;
 
 					default:
@@ -309,7 +309,7 @@ int main(int argc, char **argv) {
 				GPTIMER10  0x48086000
 				GPTIMER11  0x48088000
 				*/
-				num_regs = ARRAY_SIZE(struct reg_info, omap4430_gpt_registers);
+				num_regs = ARRAY_SIZE(struct reg_info, omap44x_gpt_registers);
 				printf("\nGeneral Purpose Timers Registers:\n");
 				printf("Which one of the eleven GPT's?? [1,2,3,4,5,6,7,8,9,10,11]:\n");
 				scanf("%d",&choice);
@@ -317,57 +317,57 @@ int main(int argc, char **argv) {
 				switch (choice) {
 					case 1:
 					printf("------------------ GPT1 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x4A318000);
+					show_registers(omap44x_gpt_registers,num_regs,0x4A318000);
 					break;
 
 					case 2:
 					printf("------------------ GPT2 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x48032000);
+					show_registers(omap44x_gpt_registers,num_regs,0x48032000);
 					break;
 
 					case 3:
 					printf("------------------ GPT3 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x48034000);
+					show_registers(omap44x_gpt_registers,num_regs,0x48034000);
 					break;
 
 					case 4:
 					printf("------------------ GPT4 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x48036000);
+					show_registers(omap44x_gpt_registers,num_regs,0x48036000);
 					break;
 
 					case 5:
 					printf("------------------ GPT5 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x49038000);
+					show_registers(omap44x_gpt_registers,num_regs,0x49038000);
 					break;
 
 					case 6:
 					printf("------------------ GPT6 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x4903A000);
+					show_registers(omap44x_gpt_registers,num_regs,0x4903A000);
 					break;
 					
 					case 7:
 					printf("------------------ GPT7 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x4903C000);
+					show_registers(omap44x_gpt_registers,num_regs,0x4903C000);
 					break;
 
 					case 8:
 					printf("------------------ GPT8 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x4903E000);
+					show_registers(omap44x_gpt_registers,num_regs,0x4903E000);
 					break;
 
 					case 9:
 					printf("------------------ GPT9 REGISTERS----------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x48086000);
+					show_registers(omap44x_gpt_registers,num_regs,0x48086000);
 					break;
 
 					case 10:
 					printf("------------------ GPT10 REGISTERS---------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x48088000);
+					show_registers(omap44x_gpt_registers,num_regs,0x48088000);
 					break;
 
 					case 11:
 					printf("------------------ GPT11 REGISTERS---------------\n");
-					show_registers(omap4430_gpt_registers,num_regs,argc,argv,0x49038000);
+					show_registers(omap44x_gpt_registers,num_regs,0x49038000);
 					break;
 
 					default:
@@ -397,12 +397,12 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 					    case 1:
 					    printf("--------------------- DCAN0 REGISTERS------------------- \n");
-					    show_registers(am335x_dcan_registers,num_regs,argc,argv,0x481CC000);
+					    show_registers(am335x_dcan_registers,num_regs,0x481CC000);
 					    break;
 
 					    case 2:
 					    printf("-------------------- DCAN1 REGISTERS-------------------- \n"); 				
-				       	    show_registers(am335x_dcan_registers,num_regs,argc,argv,0x481D0000);
+				       	    show_registers(am335x_dcan_registers,num_regs,0x481D0000);
 					    break;
 
 					    default:
@@ -425,22 +425,22 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 				            case 1:
 					    printf("--------------------- GPIO0 REGISTERS-------------------\n "); 
-					    show_registers(am335x_gpio_registers,num_regs,argc,argv,0x44E07000);
+					    show_registers(am335x_gpio_registers,num_regs,0x44E07000);
 					    break;
 
 				            case 2:
 					    printf("--------------------- GPIO1 REGISTERS------------------- \n"); 				
-					    show_registers(am335x_gpio_registers,num_regs,argc,argv,0x4804C000);
+					    show_registers(am335x_gpio_registers,num_regs,0x4804C000);
 					    break;
 					
 					    case 3:
 					    printf("--------------------- GPIO2 REGISTERS------------------- \n"); 				
-					    show_registers(am335x_gpio_registers,num_regs,argc,argv,0x480AC000);
+					    show_registers(am335x_gpio_registers,num_regs,0x480AC000);
 					    break;
 
 					    case 4:
 					    printf("--------------------- GPIO3 REGISTERS------------------- \n"); 				
-					    show_registers(am335x_gpio_registers,num_regs,argc,argv,0x480AE000);
+					    show_registers(am335x_gpio_registers,num_regs,0x480AE000);
 					    break;
 
 					    default:
@@ -462,17 +462,17 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 					    case 1:
 					    printf("-------------------- I2C0 REGISTERS-------------------- \n"); 
-					    show_registers(am335x_i2c_registers,num_regs,argc,argv,0x44E0B000);
+					    show_registers(am335x_i2c_registers,num_regs,0x44E0B000);
 					    break;
 
 				            case 2:
 					    printf("-------------------- I2C1 REGISTERS-------------------- \n"); 				
-					    show_registers(am335x_i2c_registers,num_regs,argc,argv,0x4802A000);
+					    show_registers(am335x_i2c_registers,num_regs,0x4802A000);
 					    break;
 					
 					    case 3:
 					    printf("-------------------- I2C2 REGISTERS-------------------- \n"); 				
-					    show_registers(am335x_i2c_registers,num_regs,argc,argv,0x4819C000);
+					    show_registers(am335x_i2c_registers,num_regs,0x4819C000);
 					    break;
 
 					    default:
@@ -484,7 +484,7 @@ int main(int argc, char **argv) {
 				    // base address LCD_CONTROLLER  0x4830E000
 				    printf("------------------- LCD CONTROLLER REGISTERS---------------------- \n");
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_lcd_controller_registers);		
-				    show_registers(am335x_lcd_controller_registers,num_regs,argc,argv,0x4830E000);
+				    show_registers(am335x_lcd_controller_registers,num_regs,0x4830E000);
 				    break;
 
 			 case MCASP:
@@ -500,11 +500,11 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 					    case 1:
 					    printf("----------------------- MCASP0 REGISTERS----------------- \n"); 
-					    show_registers(am335x_mcasp_registers,num_regs,argc,argv,0x48038000);
+					    show_registers(am335x_mcasp_registers,num_regs,0x48038000);
 					    break;
 
 					    case 2:
-					    printf("----------------------- MCASP1 REGISTERS----------------- \n"); 						    show_registers(am335x_mcasp_registers,num_regs,argc,argv,0x4803C000);
+					    printf("----------------------- MCASP1 REGISTERS----------------- \n"); 						    show_registers(am335x_mcasp_registers,num_regs,0x4803C000);
 					    break;
 
 					    default:
@@ -525,12 +525,12 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 					    case 1:
 					    printf("--------------------- MCSPI0 REGISTERS------------------- \n"); 
-					    show_registers(am335x_mcspi_registers,num_regs,argc,argv,0x48030000);
+					    show_registers(am335x_mcspi_registers,num_regs,0x48030000);
 					    break;
 
 				            case 2:
 					    printf("--------------------- MCSPI1 REGISTERS------------------- \n"); 				
-					    show_registers(am335x_mcspi_registers,num_regs,argc,argv,0x481A0000);
+					    show_registers(am335x_mcspi_registers,num_regs,0x481A0000);
 					    break;
 
 				   	    default:
@@ -553,17 +553,17 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 				            case 1:
 					    printf("--------------------- MMCHS0 REGISTERS------------------- \n"); 
-					    show_registers(am335x_mmchs_registers,num_regs,argc,argv,0x48060000);
+					    show_registers(am335x_mmchs_registers,num_regs,0x48060000);
 					    break;
 
 					    case 2:
 					    printf("--------------------- MMC1 REGISTERS--------------------- \n"); 				
-					    show_registers(am335x_mmchs_registers,num_regs,argc,argv,0x481D8000);
+					    show_registers(am335x_mmchs_registers,num_regs,0x481D8000);
 					    break;
 					
 					    case 3:
 					    printf("--------------------- MMCHS2 REGISTERS------------------- \n"); 				
-					    show_registers(am335x_mmchs_registers,num_regs,argc,argv,0x47810000);
+					    show_registers(am335x_mmchs_registers,num_regs,0x47810000);
 					    break;
 
 					    default:
@@ -575,7 +575,7 @@ int main(int argc, char **argv) {
 				    // base address RTCSS   0x44E3E000
 				    printf("-------------------- RTC REGISTERS--------------------- \n");
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_rtc_registers);
-		                    show_registers(am335x_rtc_registers,num_regs,argc,argv,0x44E3E000);
+		                    show_registers(am335x_rtc_registers,num_regs,0x44E3E000);
 				    break;
 
 			 case TIMER :
@@ -598,42 +598,42 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 				            case 1:
 					    printf("-------------------- TIMER0 REGISTERS-------------------- "); 
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x44E05000);
+					    show_registers(am335x_timer_registers,num_regs,0x44E05000);
 					    break;
 
 					    case 2:
 					    printf("-------------------- TIMER1 REGISTERS-------------------- "); 				
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48E31000);
+					    show_registers(am335x_timer_registers,num_regs,0x48E31000);
 					    break;
 				
 			    		    case 3:
 					    printf("-------------------- TIMER2 REGISTERS-------------------- ");			
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48040000);
+					    show_registers(am335x_timer_registers,num_regs,0x48040000);
 					    break;
 
 					    case 4:
 					    printf("-------------------- TIMER3 REGISTERS-------------------- ");			
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48042000);
+					    show_registers(am335x_timer_registers,num_regs,0x48042000);
 					    break;
 
 					    case 5:
 					    printf("-------------------- TIMER4 REGISTERS-------------------- ");			
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48044000);
+					    show_registers(am335x_timer_registers,num_regs,0x48044000);
 					    break;
 
 					    case 6:
 					    printf("-------------------- TIMER5 REGISTERS-------------------- ");			
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48046000);
+					    show_registers(am335x_timer_registers,num_regs,0x48046000);
 					    break;
 
 					    case 7:
 					    printf("-------------------- TIMER6 REGISTERS-------------------- "); 				
-				  	    show_registers(am335x_timer_registers,num_regs,argc,argv,0x48048000);
+				  	    show_registers(am335x_timer_registers,num_regs,0x48048000);
 					    break;
 
 					    case 8:
 					    printf("-------------------- TIMER7 REGISTERS-------------------- "); 				
-					    show_registers(am335x_timer_registers,num_regs,argc,argv,0x4804A000);
+					    show_registers(am335x_timer_registers,num_regs,0x4804A000);
 					    break;
 
 					    default:
@@ -645,7 +645,7 @@ int main(int argc, char **argv) {
 				    // base address ADC_TSC   0x44E0D000
 				    printf("-------------------- TSC REGISTERS--------------------- ");
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_tsc_registers);
-		                    show_registers(am335x_tsc_registers,num_regs,argc,argv,0x44E0D000);
+		                    show_registers(am335x_tsc_registers,num_regs,0x44E0D000);
 				    break;
 
 		         case UART  :
@@ -666,32 +666,32 @@ int main(int argc, char **argv) {
 				    switch (choice) {
 					    case 1:
 					    printf("----------------------- UART0 REGISTERS----------------- "); 
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x44E09000);
+					    show_registers(am335x_uart_registers,num_regs,0x44E09000);
 					    break;
 
 					    case 2:
 					    printf("----------------------- UART1 REGISTERS----------------- ");  				
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x48022000);
+					    show_registers(am335x_uart_registers,num_regs,0x48022000);
 					    break;
 					
 					    case 3:
 					    printf("----------------------- UART2 REGISTERS----------------- ");  				
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x48024000);
+					    show_registers(am335x_uart_registers,num_regs,0x48024000);
 					    break;
 
 					    case 4:
 					    printf("----------------------- UART3 REGISTERS----------------- "); 				
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x481A6000);
+					    show_registers(am335x_uart_registers,num_regs,0x481A6000);
 					    break;
 
 					    case 5:
 					    printf("----------------------- UART4 REGISTERS----------------- "); 				
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x481A8000);
+					    show_registers(am335x_uart_registers,num_regs,0x481A8000);
 					    break;
 
 					    case 6:
 					    printf("----------------------- UART5 REGISTERS----------------- "); 				
-					    show_registers(am335x_uart_registers,num_regs,argc,argv,0x481AA000);
+					    show_registers(am335x_uart_registers,num_regs,0x481AA000);
 					    break;
 
 					    default:
@@ -703,21 +703,21 @@ int main(int argc, char **argv) {
 				    // base address USBSS   0x47400000
 				    printf("---------------------- USBSS REGISTERS----------------- ");
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_usb_registers);
-				    show_registers(am335x_usb_registers,num_regs,argc,argv,0x47400000);
+				    show_registers(am335x_usb_registers,num_regs,0x47400000);
 				    break;
 
 			 case WDT   :
 				    // base addresses WDT1   0x44E35000 
 				    printf("---------------- WDT1 REGISTERS------------------------ ");
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_wdt_registers);
-		                    show_registers(am335x_wdt_registers,num_regs,argc,argv,0x44E35000);
+		                    show_registers(am335x_wdt_registers,num_regs,0x44E35000);
 				    break;
 		
 			 case PRODUCT_ID:
 				    // base 0x4A002000
 				    num_regs = ARRAY_SIZE(struct reg_info, am335x_product_id_registers);
 				    printf("\n-----------------Product ID Registers:---------------------\n");
-				    show_registers(am335x_product_id_registers,num_regs,argc,argv,0x44E10600);
+				    show_registers(am335x_product_id_registers,num_regs,0x44E10600);
 				    break;
 			 case LCD   :
   				    break;
@@ -735,14 +735,14 @@ int main(int argc, char **argv) {
 					// base 0x4830A204
 					num_regs = ARRAY_SIZE(struct reg_info, omap35x_product_id_registers);
 					printf("\n-------------------Product ID Registers:--------------------\n");
-					show_registers(omap35x_product_id_registers,num_regs,argc,argv,0x4830A204);
+					show_registers(omap35x_product_id_registers,num_regs,0x4830A204);
 					break;
 
 			case LCD_CONTROLLER:
 					// base 0x48050400
 					num_regs = ARRAY_SIZE(struct reg_info, omap35x_lcd_controller_registers);
 					printf("\n----------------LCD Controller Registers:-----------------------\n");
-					show_registers(omap35x_lcd_controller_registers,num_regs,argc,argv,0x48050400);
+					show_registers(omap35x_lcd_controller_registers,num_regs,0x48050400);
 					break;
 
 			case DCAN:
@@ -767,17 +767,17 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("-------------------- I2C0 REGISTERS----------------------"); 
-						show_registers(omap35x_i2c_registers,num_regs,argc,argv,0x48070000);
+						show_registers(omap35x_i2c_registers,num_regs,0x48070000);
 						break;
 
 						case 2:
 						printf("------------------- I2C1 REGISTERS-----------------------"); 
-						show_registers(omap35x_i2c_registers,num_regs,argc,argv,0x48072000);
+						show_registers(omap35x_i2c_registers,num_regs,0x48072000);
 						break;
 
 						case 3:
 						printf("-------------------- I2C2 REGISTERS----------------------"); 
-						show_registers(omap35x_i2c_registers,num_regs,argc,argv,0x48060000);
+						show_registers(omap35x_i2c_registers,num_regs,0x48060000);
 						break;
 
 						default:
@@ -789,7 +789,7 @@ int main(int argc, char **argv) {
 					// base 0x48050000
 					num_regs = ARRAY_SIZE(struct reg_info, omap35x_lcd_registers);
 					printf("\nLCD Registers:\n");
-					show_registers(omap35x_lcd_registers,num_regs,argc,argv,0x48050000);
+					show_registers(omap35x_lcd_registers,num_regs,0x48050000);
 					break;
 
 			case MCBSP:
@@ -810,37 +810,37 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("-------------------- MCBSP1 REGISTERS----------------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x48074000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x48074000);
 						break;
 
 						case 2:
 						printf("------------------- MCBSP2 REGISTERS-----------------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x49022000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x49022000);
 						break;
 
 						case 3:
 						printf("-------------------- MCBSP3 REGISTERS----------------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x49024000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x49024000);
 						break;
 
 						case 4:
 						printf("-------------------- MCBSP4 REGISTERS----------------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x49026000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x49026000);
 						break;
 
 						case 5:
 						printf("------------------- MCBSP5 REGISTERS-----------------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x48096000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x48096000);
 						break;
 
 						case 6:
 						printf("----------------- SIDETONE_MCBSP2 REGISTERS----------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x49028000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x49028000);
 						break;
 
 						case 7:
 						printf("----------------- SIDETONE_MCBSP3 REGISTERS----------------"); 
-						show_registers(omap35x_mcbsp_registers,num_regs,argc,argv,0x4902A000);
+						show_registers(omap35x_mcbsp_registers,num_regs,0x4902A000);
 						break;
 
 						default:
@@ -863,22 +863,22 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("--------------------- MCSPI1 REGISTERS---------------------"); 
-						show_registers(omap35x_mcspi_registers,num_regs,argc,argv,0x48098000);
+						show_registers(omap35x_mcspi_registers,num_regs,0x48098000);
 						break;
 
 						case 2:
 						printf("--------------------- MCSPI2 REGISTERS---------------------"); 
-						show_registers(omap35x_mcspi_registers,num_regs,argc,argv,0x4809A000);
+						show_registers(omap35x_mcspi_registers,num_regs,0x4809A000);
 						break;
 
 						case 3:
 						printf("--------------------- MCSPI3 REGISTERS---------------------"); 
-						show_registers(omap35x_mcspi_registers,num_regs,argc,argv,0x480B8000);
+						show_registers(omap35x_mcspi_registers,num_regs,0x480B8000);
 						break;
 
 						case 4:
 						printf("--------------------- MCSPI4 REGISTERS---------------------"); 
-						show_registers(omap35x_mcspi_registers,num_regs,argc,argv,0x480BA000);
+						show_registers(omap35x_mcspi_registers,num_regs,0x480BA000);
 						break;
 
 						default:
@@ -900,17 +900,17 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("--------------------- MMCHS1 REGISTERS---------------------");
-						show_registers(omap35x_mmchs_registers,num_regs,argc,argv,0x4809C000);
+						show_registers(omap35x_mmchs_registers,num_regs,0x4809C000);
 						break;
 
 						case 2:
 						printf("--------------------- MMCHS2 REGISTERS---------------------");
-						show_registers(omap35x_mmchs_registers,num_regs,argc,argv,0x480B4000);
+						show_registers(omap35x_mmchs_registers,num_regs,0x480B4000);
 						break;
 
 						case 3:
 						printf("--------------------- MMCHS3 REGISTERS---------------------");
-						show_registers(omap35x_mmchs_registers,num_regs,argc,argv,0x480AD000);
+						show_registers(omap35x_mmchs_registers,num_regs,0x480AD000);
 						break;
 
 						default:
@@ -936,17 +936,17 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("--------------------- UART1 REGISTERS---------------------");
-						show_registers(omap35x_uart_registers,num_regs,argc,argv,0x4806A000);
+						show_registers(omap35x_uart_registers,num_regs,0x4806A000);
 						break;
 
 						case 2:
 						printf("--------------------- UART2 REGISTERS---------------------");
-						show_registers(omap35x_uart_registers,num_regs,argc,argv,0x4806C000);
+						show_registers(omap35x_uart_registers,num_regs,0x4806C000);
 						break;
 
 						case 3:
 						printf("--------------------- UART3 REGISTERS---------------------");
-						show_registers(omap35x_uart_registers,num_regs,argc,argv,0x49020000);
+						show_registers(omap35x_uart_registers,num_regs,0x49020000);
 						break;
 
 						default:
@@ -958,7 +958,7 @@ int main(int argc, char **argv) {
 					// base address USBTLL   0x48062000
 					num_regs = ARRAY_SIZE(struct reg_info, omap35x_usbttlhs_config_registers);
 					printf("\n----------------------USBTLL Registers:--------------------------\n");
-					show_registers(omap35x_usbttlhs_config_registers,num_regs,argc,argv,0x48062000);
+					show_registers(omap35x_usbttlhs_config_registers,num_regs,0x48062000);
 					break;				
 
 			case WDT:
@@ -974,12 +974,12 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("--------------------- WDT2 REGISTERS---------------------");
-						show_registers(omap35x_wdt_registers,num_regs,argc,argv,0x48314000);
+						show_registers(omap35x_wdt_registers,num_regs,0x48314000);
 						break;
 
 						case 2:
 						printf("--------------------- WDT3 REGISTERS---------------------");
-						show_registers(omap35x_wdt_registers,num_regs,argc,argv,0x49030000);
+						show_registers(omap35x_wdt_registers,num_regs,0x49030000);
 						break;
 
 						default:
@@ -1009,57 +1009,57 @@ int main(int argc, char **argv) {
 					switch (choice) {
 						case 1:
 						printf("--------------------- GPT1 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x48318000);
+						show_registers(omap35x_gpt_registers,num_regs,0x48318000);
 						break;
 
 						case 2:
 						printf("--------------------- GPT2 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x49032000);
+						show_registers(omap35x_gpt_registers,num_regs,0x49032000);
 						break;
 
 						case 3:
 						printf("--------------------- GPT3 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x49034000);
+						show_registers(omap35x_gpt_registers,num_regs,0x49034000);
 						break;
 
 						case 4:
 						printf("--------------------- GPT4 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x49036000);
+						show_registers(omap35x_gpt_registers,num_regs,0x49036000);
 						break;
 
 						case 5:
 						printf("--------------------- GPT5 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x49038000);
+						show_registers(omap35x_gpt_registers,num_regs,0x49038000);
 						break;
 
 						case 6:
 						printf("--------------------- GPT6 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x4903A000);
+						show_registers(omap35x_gpt_registers,num_regs,0x4903A000);
 						break;
 					
 						case 7:
 						printf("--------------------- GPT7 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x4903C000);
+						show_registers(omap35x_gpt_registers,num_regs,0x4903C000);
 						break;
 
 						case 8:
 						printf("--------------------- GPT8 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x4903E000);
+						show_registers(omap35x_gpt_registers,num_regs,0x4903E000);
 						break;
 
 						case 9:
 						printf("--------------------- GPT9 REGISTERS---------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x49040000);
+						show_registers(omap35x_gpt_registers,num_regs,0x49040000);
 						break;
 
 						case 10:
 						printf("--------------------- GPT10 REGISTERS--------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x48086000);
+						show_registers(omap35x_gpt_registers,num_regs,0x48086000);
 						break;
 
 						case 11:
 						printf("--------------------- GPT11 REGISTERS--------------------");
-						show_registers(omap35x_gpt_registers,num_regs,argc,argv,0x48088000);
+						show_registers(omap35x_gpt_registers,num_regs,0x48088000);
 						break;
 
 						default:

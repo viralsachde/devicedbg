@@ -60,13 +60,33 @@ struct reg_info {
 #define AM335x		1
 #define OMAP35x		2
 
+/* Processor identification register values */
+#define OMAP4430_HAWKEYE_NUM1 0xB85202F0
+#define OMAP4430_HAWKEYE_NUM2 0xB95C02F0
+
+#define OMAP4460_RAMP_SYSTEM  0xB94E02F0
+#define OMAP4470_RAMP_SYSTEM  0xB97502F0
+
+#define OMAP3530_CHIP_ID  0x0C00
+#define OMAP3525_CHIP_ID  0x4C00
+#define OMAP3515_CHIP_ID  0x1C00
+#define OMAP3503_CHIP_ID  0x5C00
+
+#define AM3352_DEVICE_ID  0x00FF0382
+#define AM3354_DEVICE_ID  0x20FF0382
+#define AM3356_DEVICE_ID  0x00FF0383
+#define AM3357_DEVICE_ID  0x00FE0383
+#define AM3358_DEVICE_ID  0x20FF0383
+#define AM3359_DEVICE_ID  0x20FE0383
+
+
 /* if compilation includes the OMAP4 flag */
 #ifdef _OMAP4_
 
 /* ---------------------Registers OMAP 4430-------------------------- */
 // base 0x4A002000
 // product id
-static struct reg_info omap4430_product_id_registers[] = {
+static struct reg_info omap44x_product_id_registers[] = {
 	{ 0x200, 0x0, 0x0, "STD_FUSE_DIE_ID_0" },
 	{ 0x204, 0x0, 0x0, "ID_CODE" },
 	{ 0x208, 0x0, 0x0, "STD_FUSE_DIE_ID_1" },
@@ -78,7 +98,7 @@ static struct reg_info omap4430_product_id_registers[] = {
 
 // base 0x48040000
 // lcd
-static struct reg_info omap4430_lcd_registers[] = {
+static struct reg_info omap44x_lcd_registers[] = {
 	{ 0x00, 0x0, 0x0, "DSS_REVISION" },
 	{ 0x10, 0x0, 0x0, "RESERVED" },
 	{ 0x14, 0x0, 0x0, "DSS_SYSSTATUS" },
@@ -88,7 +108,7 @@ static struct reg_info omap4430_lcd_registers[] = {
 
 // base 0x48041000
 // lcd controller
-static struct reg_info omap4430_lcd_controller_registers[] = {
+static struct reg_info omap44x_lcd_controller_registers[] = {
 	{ 0x000, 0x0, 0x0, "DISPC_REVISION" },
 	{ 0x010, 0x0, 0x0, "DISPC_SYSCONFIG" },
 	{ 0x014, 0x0, 0x0, "DISPC_SYSSTATUS" },
@@ -127,7 +147,7 @@ static struct reg_info omap4430_lcd_controller_registers[] = {
 * i2c2 0x48072000
 * i2c4 0x48350000
 */
-static struct reg_info omap4430_i2c_registers[] = {
+static struct reg_info omap44x_i2c_registers[] = {
 	{ 0x00, 0x0, 0x0, "I2C_REVNB_LO" },
 	{ 0x04, 0x0, 0x0, "I2C_REVNB_HI" },
 	{ 0x10, 0x0, 0x0, "I2C_SYS" },
@@ -170,7 +190,7 @@ static struct reg_info omap4430_i2c_registers[] = {
 * uart3 0x48020000
 * uart4 0x4806E000
 */
-static struct reg_info omap4430_uart_registers[] = {
+static struct reg_info omap44x_uart_registers[] = {
 	{ 0x00, 0x0, 0x0, "UART_DLL" },
 	{ 0x04, 0x0, 0x0, "UART_DLH" },
 	{ 0x08, 0x0, 0x0, "UART_EFR" },
@@ -211,7 +231,7 @@ static struct reg_info omap4430_uart_registers[] = {
 * MMCHS4	0x480D1000
 * MMCHS5	0x480D5000
 */
-static struct reg_info omap4430_mmchs_registers[] = {
+static struct reg_info omap44x_mmchs_registers[] = {
 	{ 0x000, 0x0, 0x0, "MMCHS_HL_REV" },
 	{ 0x004, 0x0, 0x0, "MMCHS_HL_HWINFO" },
 	{ 0x010, 0x0, 0x0, "MMCHS_HL_SYSCONFIG" },
@@ -252,7 +272,7 @@ static struct reg_info omap4430_mmchs_registers[] = {
 * MCSPI3	0x480B8000
 * MCSPI4	0x480BA000
 */
-static struct reg_info omap4430_mcspi_registers[] = {
+static struct reg_info omap44x_mcspi_registers[] = {
 	{ 0x000, 0x0, 0x0, "MCSPI_HL_REV" },
 	{ 0x004, 0x0, 0x0, "MCSPI_HL_HWINFO" },
 	{ 0x010, 0x0, 0x0, "MCSPI_HL_SYSCONFIG" },
@@ -280,7 +300,7 @@ static struct reg_info omap4430_mcspi_registers[] = {
 * OHCI			0x4A064800
 * EHCI			0x4A064C00
 */
-static struct reg_info omap4430_usbttlhs_config_registers[] = {
+/*static struct reg_info omap44x_usbttlhs_config_registers[] = {
 	{ 0x000, 0x0, 0x0, "USBTTL_REVISION" },
 	{ 0x004, 0x0, 0x0, "USBTTL_HWINFO" },
 	{ 0x010, 0x0, 0x0, "USBTTL_SYSCONFIG" },
@@ -297,9 +317,9 @@ static struct reg_info omap4430_usbttlhs_config_registers[] = {
 	{ 0x410, 0x0, 0x0, "USBTLL_SAR_CNTX_4" },
 	{ 0x414, 0x0, 0x0, "USBTLL_SAR_CNTX_5" },
 	{ 0x418, 0x0, 0x0, "USBTLL_SAR_CNTX_6" }
-};
+}; */
 
-/*static struct reg_info omap4430_usbttlhs_ulpi_registers[] = {
+/*static struct reg_info omap44x_usbttlhs_ulpi_registers[] = {
 	{ 0x000, 0x0, 0x0, "VENDOR_ID_LO_0" },
 	{ 0x100, 0x0, 0x0, "VENDOR_ID_LO_1" },
 	{ 0x001, 0x0, 0x0, "VENDOR_ID_HI_0" },
@@ -385,7 +405,7 @@ static struct reg_info omap4430_usbttlhs_config_registers[] = {
 
 // base 0x49028000
 // McASP
-static struct reg_info omap4430_mcasp_registers[] = {
+static struct reg_info omap44x_mcasp_registers[] = {
 	{ 0x000, 0x0, 0x0, "MCASP_PID" },
 	{ 0x004, 0x0, 0x0, "MCASP_SYSCONFIG" },
 	{ 0x010, 0x0, 0x0, "MCASP_PFUNC" },
@@ -439,7 +459,7 @@ static struct reg_info omap4430_mcasp_registers[] = {
 WDT2   0x4A314000
 WDT3   0x49030000
 */
-static struct reg_info omap4430_wdt_registers[] = {
+static struct reg_info omap44x_wdt_registers[] = {
 	{ 0x000, 0x0, 0x0, "WDT_WIDR" },
 	{ 0x010, 0x0, 0x0, "WDT_WDSC" },
 	{ 0x014, 0x0, 0x0, "WDT_WDST" },
@@ -458,8 +478,8 @@ static struct reg_info omap4430_wdt_registers[] = {
 	{ 0x05C, 0x0, 0x0, "WDT_WIRQENSET" },
 	{ 0x060, 0x0, 0x0, "WDT_WIRQENCLR" },
 	{ 0x064, 0x0, 0x0, "WDT_WIRQWAKEEN" }
-	
 };
+
 /*General Purpose Timers(GPT) bases
 GPTIMER1   0x4A318000
 GPTIMER2   0x48032000
@@ -473,7 +493,7 @@ GPTIMER9   0x4803E000
 GPTIMER10  0x48086000
 GPTIMER11  0x48088000
 */
-static struct reg_info omap4430_gpt_registers[] = {
+static struct reg_info omap44x_gpt_registers[] = {
 	{ 0x000, 0x0, 0x0, "GPT_TIDR" },
 	{ 0x010, 0x0, 0x0, "GPT_1MS_TIOCP_CFG" },
 	{ 0x014, 0x0, 0x0, "GPT_TISTAT" },
@@ -1066,7 +1086,6 @@ static struct reg_info am335x_wdt_registers[] = {
 //base address 0x44E10600
 static struct reg_info am335x_product_id_registers[] = {
 	{ 0x0, 0x0, 0x0, "DEVICE_ID" }
-	
 };
 
 #endif		// _AM335x_
@@ -1377,10 +1396,88 @@ static struct reg_info omap35x_usbttlhs_config_registers[] = {
 // base address Device_Id   0x4830A204 
 static struct reg_info omap35x_product_id_registers[] = {
 	{ 0x000, 0x0, 0x0, "CONTROL.CONTROL_IDCODE[31:0]" }
-	
 };
 
 #endif 		// _OMAP35x_
+
+
+/* For Processor identification */
+// 0x4A002000
+static struct reg_info omap44x_processor_id[] = {
+	{ 0x204, 0x0, 0x0, "ID_CODE" }
+};
+
+// 0x44E10600
+static struct reg_info am335x_processor_id[] = {
+	{ 0x04, 0x0, 0x0, "DEVICE_FEATURE" }
+};
+
+// 0x48002400
+static struct reg_info omap35x_processor_id[] = {
+	{ 0x4C, 0x0, 0x0, "CHIP_ID" }
+};
+
+
+/*
+ * Reads the register contents from the memory
+ * Input:
+ *	struct reg_info rinfo[] -	structure having the register offset, name ,etc.
+ *	int num_regs		-	number of registers contained in the structure
+ *	unsigned long base	-	base address for the memory location to be read
+ *
+ * Output:
+ *	Register values are shown
+ */
+void show_registers(struct reg_info rinfo[],int num_regs, unsigned long base) {
+	int fd, i=0;
+	void *map_base, *virt_addr;
+	unsigned long read_result;
+	off_t target;
+	unsigned long len, mask;
+
+	printf("Base %lx\n",base);
+//	printf("%s Registers\n",reg_type);
+//	num_regs = ARRAY_SIZE(struct reg_info, rinfo);
+	printf("No of registers: %d\n", num_regs);
+
+	target = base;
+
+	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) FATAL;
+	printf("/dev/mem opened.\n");
+
+	if(num_regs == 1) {
+		len = 8;
+		mask = 7;
+	}
+
+	else {
+		len = MAP_SIZE;
+		mask = MAP_MASK;
+	}
+
+	/* Map one page */
+//	map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~MAP_MASK);
+
+	map_base = mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~mask);
+
+	if(map_base == (void *) -1) FATAL;
+	printf("Memory mapped at address %p.\n", map_base); 
+
+	for(i=0; i < num_regs; i++) {
+		target = rinfo[i].offset;
+		virt_addr = map_base + (target & MAP_MASK);
+
+	read_result = *((unsigned long *) virt_addr);
+	rinfo[i].old_value = read_result;
+//		printf("Reg Name: %s & Value at address 0x%X (%p): 0x%X\n",rinfo[i].name, target, 							virt_addr, read_result);
+
+	printf("REGISTER NAME: %s \t\tValue at address 0x%lX \t offset 0x%lX \t (%p) \t: 0x%lX\n",rinfo[i].name,target,rinfo[i].offset ,virt_addr, read_result);
+	}
+
+	if(munmap(map_base, MAP_SIZE) == -1) FATAL;
+	close(fd);
+}
+
 
 /* Reads the /proc/cpuinfo and finds out which processor we are working on
  * Input:
@@ -1410,6 +1507,28 @@ int read_processor() {
 			// OMAP4 one
 			if(strstr(field,"OMAP4") != NULL) {
 				printf("OMAP4 Processor\n");
+
+				show_registers(omap44x_processor_id,1,0x4A002000);
+				unsigned long id_value = omap44x_processor_id[0].old_value << 4;
+				printf("id_value :: %lX\n",id_value);
+				printf("omap44x_processor_id[0].old_value :: %lX\n",omap44x_processor_id[0].old_value);
+
+				if(id_value == OMAP4430_HAWKEYE_NUM1 || id_value == OMAP4430_HAWKEYE_NUM2) {
+					printf("It is OMAP4430\n");
+				}
+
+				else if(id_value == OMAP4460_RAMP_SYSTEM) {
+					printf("It is OMAP4460\n");
+				}
+
+				else if(id_value == OMAP4470_RAMP_SYSTEM) {
+					printf("It is OMAP4470\n");
+				}
+
+				else {
+					printf("It does not belong to OMAP44x Family\n");
+				}
+
 				fclose(fp);
 				return OMAP4;
 			}
@@ -1417,6 +1536,38 @@ int read_processor() {
 			// AM335x series one
 			else if(strstr(field,"AM335") != NULL) {
 				printf("AM335x Processor\n");
+
+				show_registers(am335x_processor_id,1,0x44E10600);
+				printf("am335x_processor_id[0].old_value :: %lX\n",am335x_processor_id[0].old_value);
+
+				if( am335x_processor_id[0].old_value == AM3352_DEVICE_ID ) {
+					printf("It is AM3352\n");
+				}
+
+				else if( am335x_processor_id[0].old_value == AM3354_DEVICE_ID ){
+					printf("It is AM3354\n");
+				}
+
+				else if( am335x_processor_id[0].old_value == AM3356_DEVICE_ID ){
+					printf("It is AM3356\n");
+				}
+
+				else if( am335x_processor_id[0].old_value == AM3357_DEVICE_ID ){
+					printf("It is AM3357\n");
+				}
+
+				else if( am335x_processor_id[0].old_value == AM3358_DEVICE_ID ){
+					printf("It is AM3358\n");
+				}
+
+				else if( am335x_processor_id[0].old_value == AM3359_DEVICE_ID ){
+					printf("It is AM3359\n");
+				}
+
+				else {
+					printf("It does not belong to AM335x Family\n");
+				}
+
 				fclose(fp);
 				return AM335x;
 			}
@@ -1424,6 +1575,30 @@ int read_processor() {
 			// OMAP35x series one
 			else if(strstr(field,"OMAP35") != NULL) {
 				printf("OMAP35x Processor\n");
+
+				show_registers(omap35x_processor_id,1,0x48002400);
+				printf("omap35x_processor_id[0].old_value :: %lX\n",omap35x_processor_id[0].old_value);
+
+				if(omap35x_processor_id[0].old_value == OMAP3530_CHIP_ID ) {
+					printf("It is OMAP3530\n");
+				}
+
+				else if(omap35x_processor_id[0].old_value == OMAP3525_CHIP_ID) {
+					printf("It is OMAP3525\n");
+				}
+
+				else if(omap35x_processor_id[0].old_value == OMAP3515_CHIP_ID) {
+					printf("It is OMAP3515\n");
+				}
+
+				else if(omap35x_processor_id[0].old_value == OMAP3503_CHIP_ID) {
+					printf("It is OMAP3503\n");
+				}
+
+				else {
+					printf("It does not belong to OMAP35x Family\n");
+				}
+
 				fclose(fp);
 				return OMAP35x;
 			}
@@ -1440,71 +1615,5 @@ int read_processor() {
 	return -1;
 }
 
-/*
- * Reads the register contents from the memory
- * Input:
- *	struct reg_info rinfo[] -	structure having the register offset, name ,etc.
- *	int num_regs		-	number of registers contained in the structure
- *	int argc, char **argv	-	commandline parameters passed to the program by user
- *	unsigned long base	-	base address for the memory location to be read
- *
- * Output:
- *	Register values are shown
- */
-
-void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,unsigned long base) {
-	int fd, i=0;
-	int access_type = 'w';
-	void *map_base, *virt_addr;
-	unsigned long read_result;
-	off_t target;
-
-//	printf("%s Registers\n",reg_type);
-//	num_regs = ARRAY_SIZE(struct reg_info, rinfo);
-	printf("No of registers: %d\n", num_regs);
-
-//	target = strtoul(argv[1], 0, 0);
-	target = base;
-
-//	if(argc > 2)
-//		access_type = tolower(argv[2][0]);
-
-	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) FATAL;
-	printf("/dev/mem opened.\n");
-
-	/* Map one page */
-	map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~MAP_MASK);
-
-	if(map_base == (void *) -1) FATAL;
-	printf("Memory mapped at address %p.\n", map_base); 
-
-	for(i=0; i < num_regs; i++) {
-		target = rinfo[i].offset;
-		virt_addr = map_base + (target & MAP_MASK);
-
-	    switch(access_type) {
-			case 'b':
-				read_result = *((unsigned char *) virt_addr);
-				break;
-			case 'h':
-				read_result = *((unsigned short *) virt_addr);
-				break;
-			case 'w':
-				read_result = *((unsigned long *) virt_addr);
-				break;
-			default:
-				fprintf(stderr, "Illegal data type '%c'.\n", access_type);
-				exit(2);
-		}
-
-		rinfo[i].old_value = read_result;
-//		printf("Reg Name: %s & Value at address 0x%X (%p): 0x%X\n",rinfo[i].name, target, 							virt_addr, read_result);
-
-		printf("REGISTER NAME: %s \t\tValue at address 0x%lX \t offset 0x%lX \t (%p) \t: 0x%lX\n",rinfo[i].name,target,rinfo[i].offset ,virt_addr, read_result);
-	}
-
-	if(munmap(map_base, MAP_SIZE) == -1) FATAL;
-	close(fd);
-}
 
 #endif
