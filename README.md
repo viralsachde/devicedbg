@@ -6,21 +6,13 @@ devicedbg
 build
 =====
 
-# FOR COMPILING THE PROGRAM WITHOUT ANY PLATFORM CONSTRAINTS DO
-make
-# make device-dbg will also work
+For Compiling program without any platform constraints, do: 
+$ make 
+'make device-dbg' will also work. 
 
-
-# FOR COMPILING SPECIFIC TO THE OMAP4 PLATFORM DO
-make devicedbg-omap4
-
-# FOR COMPILING SPECIFIC TO THE AM335X PLATFORM DO
-make devicedbg-am335x
-
-# FOR CLEANING THE DIRECTORY i.e. REMOVING THE EXECUTABLES, PERFORM
-make clean
-
-## Note: YOU SHOULD BE IN THE SAME DIRECTORY WHERE THE SOURCE CODE RESIDES, IN ORDER TO GIVE THESE COMMANDS
+For compiling specific to OMAP4 or AM335x serier: 
+$ make devicedbg-omap4
+$ make devicedbg-am335x 
 
 usage 
 =====
