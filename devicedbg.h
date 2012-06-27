@@ -1500,7 +1500,7 @@ void show_registers(struct reg_info rinfo[],int num_regs, int argc, char **argv,
 		rinfo[i].old_value = read_result;
 //		printf("Reg Name: %s & Value at address 0x%X (%p): 0x%X\n",rinfo[i].name, target, 							virt_addr, read_result);
 
-		printf("REGISTER NAME: %s \t\tValue at address 0x%lu \t offset 0x%lu \t (%p) \t: 0x%lu\n",rinfo[i].name,target,rinfo[i].offset ,virt_addr, read_result);
+		printf("REGISTER NAME: %s \t\tValue at address 0x%lX \t offset 0x%lX \t (%p) \t: 0x%lX\n",rinfo[i].name,target,rinfo[i].offset ,virt_addr, read_result);
 	}
 
 	if(munmap(map_base, MAP_SIZE) == -1) FATAL;
