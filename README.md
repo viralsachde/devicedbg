@@ -10,10 +10,16 @@ For Compiling program without any platform constraints, do:
 $ make 
 'make device-dbg' will also work. 
 
+<<<<<<< HEAD
 For compiling specific to OMAP4 or AM335x or OMAP35x series: 
 $ make devicedbg-omap4
 $ make devicedbg-am335x
 $ make devicedbg-omap35x
+=======
+For compiling specific to OMAP4 or AM335x serier: 
+$ make devicedbg-omap4
+$ make devicedbg-am335x 
+>>>>>>> 264d1d002d0c789df7349d05a2639d61766f3e7b
 
 usage 
 =====
