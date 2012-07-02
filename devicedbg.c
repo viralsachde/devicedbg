@@ -63,8 +63,9 @@ int main(int argc, char **argv) {
         int n = atoi(argv[1]);
 	int processor = read_processor();	// which processor we are working on
 
+	switch(processor) {
 #ifdef _OMAP4_
-	if( processor == OMAP4 ) {
+		case OMAP4:
 		switch(n) {
 			case PRODUCT_ID:
 				// base 0x4A002000
@@ -378,11 +379,12 @@ int main(int argc, char **argv) {
 			default:
 				printf("Invalid section\n");
 		}
-	}
+
+		break;
 #endif		// _OMAP4_
 
 #ifdef _AM335x_
-	if( processor == AM335x ) {
+		case AM335x:
 		switch (n) {
 			case DCAN  :
 			  	    printf("------------------- DCAN REGISTERS---------------- "); 
@@ -725,11 +727,12 @@ int main(int argc, char **argv) {
 		  	 default   :
 			 	    printf("Invalid Selection" );
 		}
-	}
+
+		break;
 #endif	// _AM335x_
 
 #ifdef _OMAP35x_
-	if( processor == OMAP35x ) {
+		case OMAP35x:
 		switch(n) {
 			case PRODUCT_ID:
 					// base 0x4830A204
@@ -1070,11 +1073,12 @@ int main(int argc, char **argv) {
 			default:
 				printf("Invalid section\n");
 		}
-	}
+
+		break;
 #endif 		// _OMAP35x_
 
-	else {
-		printf("Processor not supported\n");
+		default:
+		printf("Processor not supported by the current program\n");
 	}
 
 	return 0;

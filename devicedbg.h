@@ -1459,7 +1459,7 @@ void show_registers(struct reg_info rinfo[],int num_regs, unsigned long base) {
 //	map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~MAP_MASK);
 
 	map_base = mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~mask);
-
+//
 	if(map_base == (void *) -1) FATAL;
 	printf("Memory mapped at address %p.\n", map_base); 
 
@@ -1534,7 +1534,7 @@ int read_processor() {
 			}
 
 			// AM335x series one
-			else if(strstr(field,"AM335") != NULL) {
+			else if(strstr(field,"am335") != NULL) {
 				printf("AM335x Processor\n");
 
 				show_registers(am335x_processor_id,1,0x44E10600);
