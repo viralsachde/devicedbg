@@ -1433,7 +1433,7 @@ void show_registers(struct reg_info rinfo[],int num_regs, unsigned long base) {
 	void *map_base, *virt_addr;
 	unsigned long read_result;
 	off_t target;
-	unsigned long len, mask;
+//	unsigned long len, mask;
 
 	printf("Base %lx\n",base);
 //	printf("%s Registers\n",reg_type);
@@ -1445,7 +1445,7 @@ void show_registers(struct reg_info rinfo[],int num_regs, unsigned long base) {
 	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) FATAL;
 	printf("/dev/mem opened.\n");
 
-	if(num_regs == 1) {
+/*	if(num_regs == 1) {
 		len = 8;
 		mask = 7;
 	}
@@ -1453,12 +1453,12 @@ void show_registers(struct reg_info rinfo[],int num_regs, unsigned long base) {
 	else {
 		len = MAP_SIZE;
 		mask = MAP_MASK;
-	}
+	} */
 
 	/* Map one page */
-//	map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~MAP_MASK);
+	map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~MAP_MASK);
 
-	map_base = mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~mask);
+//	map_base = mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~mask);
 //
 	if(map_base == (void *) -1) FATAL;
 	printf("Memory mapped at address %p.\n", map_base); 
