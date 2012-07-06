@@ -10,6 +10,10 @@ SRC	:= devicedbg.c
 devicedbg: devicedbg.c devicedbg.h
 	$(CC) $(FLAGS) -D _OMAP4_ -D _AM335x -D _OMAP35x_ devicedbg.c -o devicedbg
 
+# compilation for all the platforms standalone binary
+devicedbg-static: devicedbg.c devicedbg.h
+	$(CC) $(FLAGS) -static -D _OMAP4_ -D _AM335x -D _OMAP35x_ devicedbg.c -o devicedbg-static
+
 # compilation only for omap4 system
 devicedbg-omap4: devicedbg.c devicedbg.h
 	$(CC) $(FLAGS) -D _OMAP4_ devicedbg.c -o devicedbg-omap4
